@@ -2,7 +2,8 @@
 
 스프링 부트 개념과 활용 ( 백기선님 강좌 )
 
-inflearn
+inflearn ( 주석은 컨트롤러에... )
+
  - spring web MVC 1~6 부
 
 thymeleaf/thymeleaf ( spring web MVC 7~9부 )
