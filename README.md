@@ -25,3 +25,15 @@ cors
 
 
 security
+
+
+actuator
+ - https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints 참고하여 적절하게 설정하여 사용할 것.
+ - 개발중인 서버에 spring-boot-starter-actuator 의존성을 추가한다.
+ - 기본적으로 /actuator를 이용하여 text로 운영정보를 확인할 수 있지만 보기 안좋다.
+ - 콘솔창에서 jconsole을 입력하여 나름대로 보기좋게 볼 수 있다.
+
+
+spring boot admin(actuator를 쉽게 볼수 있고 운영 중에 프로젝트의 로깅 레벨을 쉽게 바꿀 수 있다.)
+ - 프로젝트를 하나 생성하여, spring-boot-admin-starter-server 의존성을 주입하고 DemoApplication에 @EnableAdminServer를 추가한다.
+ - 기존에 개발했던 프로젝트에 actuator와 spring-boot-admin-starter-client 의존성을 추가 후, application.properties에 spring.boot.admin.client.url=http://localhost:8000 를 추가한다.(뒤의 url은 admin 주소)
