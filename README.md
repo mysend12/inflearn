@@ -1,4 +1,4 @@
-"# inflearn" 
+# inflearn - https://github.com/mysend12/inflearn/tree/master
 
 스프링 부트 개념과 활용 ( 백기선님 강좌, 주석은 BasicController 혹은 DemoApplication에... )
 
