@@ -1,4 +1,4 @@
-# inflearn
+# inflearn - https://github.com/mysend12/inflearn/tree/master
 인프런 인강
 
 자바 ORM 표준 JPA 프로그래밍 - 기본편
