@@ -36,4 +36,13 @@ public class Member {
     public String toString() {
         return "Member [id=" + id + ", name=" + name + "]";
     }
+
+    public Member(){
+        
+    }
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
