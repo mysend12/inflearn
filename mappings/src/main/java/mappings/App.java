@@ -5,9 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import mappings.domain.Member;
-import mappings.domain.Team;
-
 public class App {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -16,16 +13,18 @@ public class App {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setUsername("member2");
+            // Member member = new Member();
+            // member.setUsername("member2");
 
-            em.persist(member);             // 팀을 먼저 컨텍스트에 저장하지 않으면 데이터가 저장되지 않는다.
+            // em.persist(member);             // 팀을 먼저 컨텍스트에 저장하지 않으면 데이터가 저장되지 않는다.
 
-            Team team = new Team();
-            team.setName("teamA");
+            // Team team = new Team();
+            // team.setName("teamA");
             
-            team.getMembers().add(member);  // 외래키 업데이트
-            em.persist(team);
+            // team.getMembers().add(member);  // 외래키 업데이트
+            // em.persist(team);
+
+            
 
             tx.commit();
         }catch(Exception e){
@@ -60,10 +59,24 @@ public class App {
  *  -> 읽기 전용으로 만들기 위해 insert와 update 기능은 끄는 것. C, U를 끄지 않으면 데이터가 꼬인다.(심각한 오류)
  
  * @JoinColumn을 사용하지 않으면 중간 테이블(연관관계 테이블)이 하나 생긴다
- * 
+//  -------------------------------------------------------------------------------------------
+ * 1:1: 주 테이블이나 대상 테이블 중 외래 키 선택 가능
+ *  -> 주 테이블에 외래 키
+ *  -> 대상 테이블에 외래 키 단방향: JPA에서 지원하지 않으며 양방향으로 바꾸면 가능
+ * 외래 키에 데이터베이스 유니크(UNI) 제약조건 추가
  
- * 
- * 
+ * 주 테이블에 외래 키
+ *  -> 주 객체가 대상 객체의 참조를 가지는 것처럼 주 테이블에 외래 키를 두고 대상 테이블을 찾는다.
+ *  -> 객체 지향 개발자 선호
+ *  -> JPA 매핑 편리
+ *  -> 장점: 주 테이블만 조회해도 대상 테이블에 데이터가 있는지 확인 가능
+ *  -> 단점: 값이 없으면 외래 키에 null 허용
+ 
+ * 보조 테이블에 외래 키
+ *  -> 대상 테이블에 외래 키가 존재
+ *  -> 전통적인 데이터베이스 개발자 선호
+ *  -> 장점: 주 테이블과 대상 테이블을 1:1에서 1:다의 관계로 변경 시 테이블 구조를 유지할 수 있음
+ *  -> 단점: 프록시 기능의 한계로 지연 로딩으로 설정해도 항상 즉시 로딩됨
  */
 
 }
