@@ -5,9 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import entity.domain.Order;
-import entity.domain.OrderItem;
-
 public class App {
 
     public static void main(String[] args) {
@@ -18,13 +15,13 @@ public class App {
 
         try{
             
-            Order order = new Order();
-            em.persist(order);
+            // Order order = new Order();
+            // em.persist(order);
             // order.addOrderItem(new OrderItem());
 
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
-            em.persist(orderItem);
+            // OrderItem orderItem = new OrderItem();
+            // orderItem.setOrder(order);
+            // em.persist(orderItem);
 
             tx.commit();
             

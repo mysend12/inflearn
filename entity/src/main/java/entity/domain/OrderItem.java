@@ -17,7 +17,6 @@ public class OrderItem {
 
 
     @Id @GeneratedValue
-    @Column(name = "ORDER_ID")
     private Long id;
 
     @ManyToOne
