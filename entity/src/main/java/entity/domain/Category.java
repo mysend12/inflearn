@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,7 +34,7 @@ public class Category {
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "CATEGORY_ITEM", 
             joinColumns = @JoinColumn(name = "CATEGORY_ID"),    // 내가 조인해야 하는 컬럼
             inverseJoinColumns = @JoinColumn(name = "ITEM_ID")  // 반대편 테이블이 조인해야하는 컬럼
