@@ -5,8 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import entity.domain.Book;
-
 public class App {
 
     public static void main(String[] args) {
@@ -16,11 +14,6 @@ public class App {
         tx.begin();
 
         try{
-            
-            Book book = new Book();
-            book.setName("JPA");
-            book.setAuthor("author");
-            em.persist(book);
 
             tx.commit();
             
